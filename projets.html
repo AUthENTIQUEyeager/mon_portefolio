@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portefolio - Projets</title>
+  <link rel="stylesheet" href="projet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+          <div class="logo">Authentique.</div>
+          
+          <input type="checkbox" id="menu-toggle" class="menu-toggle">
+          <label for="menu-toggle" class="menu-icon">
+            <i class="fas fa-bars"></i>
+          </label>
+      
+          <ul class="nav-links">
+            <li><a href="authentique.html" >Accueil</a></li>
+            <li><a href="about.html">À propos de moi</a></li>
+            <li><a href="projets.html"class="active">Mes projets</a></li>
+            <li><a href="competence.html">Mes compétences</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+        <main class="projets-section">
+          <h2>Voici Quelque un de mes projets _______________________________________________________________________________________________________________________________________</h2>
+      
+          <div class="project-card">
+            <h2>Convertisseur d’années</h2>
+            <p>Entrez un nombre d’années pour voir l’équivalent en mois, jours, heures, minutes et secondes.</p>
+            
+            <input type="number" id="yearsInput" placeholder="Ex: 2" />
+            <button onclick="convertirAnnees()">Convertir</button>
+      
+            <div id="resultat"></div>
+          </div>
+
+          <div class="project-card">
+            <h2>Calculateur d’âge</h2>
+            <p>Entrez votre année de naissance pour calculer votre âge.</p>
+            <input type="number" id="birthYear" placeholder="Ex: 2005" />
+            <button onclick="calculerAge()">Calculer</button>
+            <div id="ageResult"></div>
+          </div>
+
+          <div class="project-card">
+            <h2>Convertisseur cm ➜ mètres</h2>
+            <p>Entrez une taille en centimètres pour obtenir la valeur en mètres.</p>
+            <input type="number" id="cmInput" placeholder="Ex: 175" />
+            <button onclick="convertirCm()">Convertir</button>
+            <div id="cmResult"></div>
+          </div>
+  
+  
+  
+          <div class="project-card">
+            <h2>Nombre aléatoire</h2>
+            <p>Génère un nombre entre 1 et 100.</p>
+            <button onclick="genererNombre()">Générer</button>
+            <div id="randomResult"></div>
+          </div>
+          
+        </main>
+
+
+        <div class="bande-texte">
+          Contactez moi ++++  Contactez moi ++++  Contactez moi ++++  Contactez moi ++++  Contactez moi ++++  Contactez moi ++++  Contactez moi ++++  Contactez moi ++++  Contactez moi ++++  Contactez moi ++++  Contactez moi ++++  Contactez moi ++++  Contactez moi ++++  Contactez moi ++++ 
+      </div>
+    </div>
+
+    <div id="progress-bar"></div>
+        
+     
+
+      <footer>
+        <div class="footer-content">
+          <p>&copy; 2025 - Authentique. Tous droits réservés.</p>
+          <div class="social-icons">
+            <a href="https://github.com/AUthENTIQUEyeager/AUthENTIQUEyeager/tree/main"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/emmanuel-bagr%C3%A9-70a9aa35b/"><i class="fab fa-linkedin"></i></a>
+            <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </footer>
+      <script>
+        function convertirAnnees() {
+          const annees = document.getElementById("yearsInput").value;
+          if (annees <= 0 || isNaN(annees)) {
+            document.getElementById("resultat").innerHTML = "<p>Veuillez entrer un nombre valide.</p>";
+            return;
+          }
+          const mois = annees * 12;
+          const jours = annees * 365;
+          const heures = jours * 24;
+          const minutes = heures * 60;
+          const secondes = minutes * 60;
+    
+          document.getElementById("resultat").innerHTML = `
+            <p><strong>${annees} année(s)</strong> correspondent à :</p>
+            <ul>
+              <li><strong>${mois}</strong> mois</li>
+              <li><strong>${jours}</strong> jours</li>
+              <li><strong>${heures}</strong> heures</li>
+              <li><strong>${minutes}</strong> minutes</li>
+              <li><strong>${secondes}</strong> secondes</li>
+            </ul>
+          `;
+        }
+      </script>
+
+
+
+      <!--compeur d'age-->
+      <script>
+        function calculerAge() {
+          const year = document.getElementById("birthYear").value;
+          const currentYear = new Date().getFullYear();
+          if (year > currentYear || year < 1900 || isNaN(year)) {
+            document.getElementById("ageResult").innerHTML = "<p>Année invalide.</p>";
+          } else {
+            const age = currentYear - year;
+            document.getElementById("ageResult").innerHTML = `<p>Vous avez <strong>${age} ans</strong>.</p>`;
+          }
+        }
+      </script>
+
+      <!--convertisseur-->
+
+<script>
+  function convertirCm() {
+    const cm = document.getElementById("cmInput").value;
+    if (cm <= 0 || isNaN(cm)) {
+      document.getElementById("cmResult").innerHTML = "<p>Valeur invalide.</p>";
+    } else {
+      const m = cm / 100;
+      document.getElementById("cmResult").innerHTML = `<p>${cm} cm = <strong>${m} m</strong>.</p>`;
+    }
+  }
+</script>
+
+  <!--choix azzar-->
+  <script>
+    function genererNombre() {
+      const nombre = Math.floor(Math.random() * 100) + 1;
+      document.getElementById("randomResult").innerHTML = `<p>Nombre généré : <strong>${nombre}</strong></p>`;
+    }
+  </script>
+      
+</body>
+</html>

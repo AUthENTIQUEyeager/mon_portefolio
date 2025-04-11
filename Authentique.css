@@ -1,0 +1,229 @@
+/* styles/authentique.css */
+
+:root {
+    --primary-color: #4a6cf7;
+    --secondary-color: #2a3b4c;
+    --accent-color: #ff6b6b;
+    --text-color: #333;
+    --text-light: #666;
+    --light-text: #f8f9fa;
+    --background-color: #f5f7fa;
+    --card-color: #fff;
+    --border-radius: 12px;
+    --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --nav-bg: rgba(255, 255, 255, 0.1);
+    --nav-blur: blur(15px);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+  }
+  
+  header {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 0.8rem 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Main nav container */
+  .main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Logo */
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #aaa9a9;
+  }
+  
+  /* Links */
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #808080;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #4a6cf7;
+  }
+  
+  /* Menu responsive */
+  .menu-toggle {
+    display: none;
+  }
+  
+  .menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    color:  #808080;
+    cursor: pointer;
+  }
+  
+  /* Responsive behavior */
+  @media (max-width: 768px) {
+    header {
+      top: 20px;
+      left: 20px;
+      right: 20px;
+    }
+  
+    .menu-icon {
+      display: block;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      width: 100%;
+      display: none;
+      background-color: rgba(0, 0, 0, 0.6);
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+  
+    .nav-links li {
+      text-align: center;
+      margin: 0.5rem 0;
+    }
+  
+    .menu-toggle:checked ~ .nav-links {
+      display: flex;
+    }
+  }
+  
+  section.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(120deg, #f0f2f5, #e0e7ff);
+    padding: 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: var(--text-light);
+  }
+  .services > div {
+    flex: 1 1 30%;
+    min-width: 280px;
+    background: var(--card-color);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+  }
+  
+  .services > div:hover {
+    transform: translateY(-10px);
+  }
+  .btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #3a5bd6;
+    box-shadow: 0 6px 12px rgba(74, 108, 247, 0.2);
+    transform: translateY(-10px);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #22303f;
+    box-shadow: 0 6px 12px rgba(42, 59, 76, 0.2);
+    transform: translateY(-2px);
+}
+
+
+
+
+
+
+  
+  footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: #fff;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      background: var(--nav-bg);
+      backdrop-filter: var(--nav-blur);
+      padding: 1rem;
+      display: none;
+      width: 100%;
+    }
+  
+    .nav-toggle:checked + .nav-toggle-label + .nav-links {
+      display: flex;
+    }
+  
+    .nav-toggle-label {
+      display: block;
+    }
+  }
+  
